@@ -1,0 +1,177 @@
+.userBg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eff6ff 0%, #fff 50%, #dbeafe 100%);
+  color: #1e293b;
+}
+
+.userContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.userHeaderRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 16px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .userHeader{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+
+     @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  }
+}
+
+.userTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: -1px;
+  margin: 0;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+}
+
+.userHeaderActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    gap: 8px;
+  }
+}
+
+.userBtnWrapper{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.userBtn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid #000000;
+  background: #000000;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  white-space: nowrap;
+
+  &:hover {
+    background: #000000;
+    border-color: #000000;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 8px 5px;
+    min-width: 120px;
+  }
+}
+
+.userAdminBtn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #000000;
+  font-weight: 600;
+  border: 1px solid #000000;
+  text-decoration: none;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #e0e7ef;
+  }
+}
+
+.userNoEntries {
+  text-align: center;
+  color: #64748b;
+  font-size: 20px;
+  padding: 48px 0;
+}
+
+.userCardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-start;
+
+  @media (max-width: 900px) {
+    gap: 18px;
+  }
+  @media (max-width: 600px) {
+    gap: 10px;
+  }
+}
+
+.userTableWrapper {
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.userTable {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  border-collapse: collapse;
+  min-width: 600px;
+
+  @media (max-width: 700px) {
+    min-width: 400px;
+    font-size: 0.95rem;
+  }
+}
+
+.userTable th,
+.userTable td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.userTable td:last-child {
+  text-align: center;
+}
+
+.userTable th {
+  font-weight: 700;
+  background: #eff6ff;
+}
+
+.userTable tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.userTable img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
