@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AdminForm from '../components/AdminForm';
 import DashboardSidebar from '../components/DashboardSidebar';
 import EntryCard from '../components/EntryCard';
@@ -11,6 +11,7 @@ const Admin: React.FC = () => {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'card' | 'list'>('card');
+  const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchEntries().then(setEntries);
@@ -29,7 +30,11 @@ const Admin: React.FC = () => {
     }
   };
 
-  const handleEdit = (index: number) => setEditingIndex(index);
+  const handleEdit = (index: number) => {
+    setEditingIndex(index);
+    // Scroll to the form so the admin can see the edit fields
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleRemove = async (index: number) => {
     await deleteEntry(index);
@@ -49,12 +54,14 @@ const Admin: React.FC = () => {
       <main className={styles.dashboardMain}>
         <header className={styles.dashboardHeader}>Manage Appointments</header>
        
-        <AdminForm
-          onAddEntry={handleAddEntry}
-          initialEntry={editingIndex !== null ? entries[editingIndex] : undefined}
-          isEditing={editingIndex !== null}
-          onCancelEdit={() => setEditingIndex(null)}
-        />
+        <div ref={formRef}>
+          <AdminForm
+            onAddEntry={handleAddEntry}
+            initialEntry={editingIndex !== null ? entries[editingIndex] : undefined}
+            isEditing={editingIndex !== null}
+            onCancelEdit={() => setEditingIndex(null)}
+          />
+        </div>
         <h2 className={styles.entriesTitle}>Current Entries</h2>
          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
           <button
