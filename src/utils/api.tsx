@@ -17,7 +17,7 @@ export const addEntry = async (entry: Entry) => {
 };
 
 export const updateEntry = async (index: number, entry: Entry) => {
-  const res = await fetch(`${API_URL}/[${index}]`, {
+  const res = await fetch(`${API_URL}/${index}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(entry),
@@ -26,7 +26,7 @@ export const updateEntry = async (index: number, entry: Entry) => {
 };
 
 export const deleteEntry = async (index: number) => {
-  const res = await fetch(`${API_URL}/[${index}]`, {
+  const res = await fetch(`${API_URL}/${index}`, {
     method: 'DELETE',
   });
   return res.json();
